@@ -1,12 +1,4 @@
-# useful code for pymongo update many
-# https://stackoverflow.com/questions/63237980/how-to-update-many-values-in-mongodb-by-the-list-of-ids
-
-import pymongo as pm
-from pymongo.mongo_client import MongoClient
-from pymongo.server_api import ServerApi
 from pymongo import UpdateOne, ReplaceOne
-import json
-import requests
 import time
 import pickle
 
@@ -91,9 +83,8 @@ if __name__ == "__main__":
 
     # get list of documents to update from the collection
     doc_list = get_list_of_docs_to_update(collection, check_if_embedding_exists=False)
-    doc_list = doc_list[:200]
 
-    # create embeddings
+    # create embeddings for
     API_URL = get_hf_api_url()
     headers = {"Authorization": f"Bearer {get_hf_token()}"}
     embedded_docs = add_embeddings_to_docs(doc_list, API_URL, headers)

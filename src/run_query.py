@@ -1,5 +1,3 @@
-import requests
-import json
 from src.ConnectionTools import mongodb_connect, get_hf_token, get_hf_api_url
 from src.Helper import query
 
